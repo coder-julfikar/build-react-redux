@@ -1,3 +1,5 @@
+const redux = require('redux');
+
 console.log('---React-Redux/App---');
 
 const BUY_CAKE = 'BUY_CAKE';
@@ -25,3 +27,20 @@ const reducer = (state=initState, action) => {
         default: return state
     }
 };
+
+const store = redux.createStore(reducer); //redux.legacy_createStore(reducer)
+console.log('Initial state => ', store.getState());
+const unsubscribe=store.subscribe(()=> console.log('Updated state => ', store.getState())); //anytime store updates, it's fired
+store.dispatch(buyCake());
+store.dispatch(buyCake());
+store.dispatch(buyCake());
+unsubscribe();
+
+/*
+import { configureStore } from '@reduxjs/toolkit';
+import rootReducer from './reducer';
+
+const store = configureStore({
+  reducer: rootReducer,
+});
+*/
