@@ -4,6 +4,8 @@
 npm init --yes
 npm install redux
 npm install @reduxjs/toolkit #modern-toolkit
+npm install redux-logger
+npm install axios redux-thunk
 ```
 
 ## Git-Repo-Config
